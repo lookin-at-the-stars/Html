@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cadastro.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <form action="">
+    <h1>Crie sua Conta</h1>    
+
+    <div class="input-box">
+        <input type="text" required placeholder="Nome Completo:" maxlength="100">
+        <i class='bx bxs-user'></i>
+    </div>
+
+   <div class="input-box">
+    <input type="email" required placeholder="Email:">
+    <i class='bx bxs-user'></i>
+</div>
+
+<div class="input-box">
+    <input id="password-input" type="password" required placeholder="Senha:">
+    <i class='bx bxs-lock' id="toggle-password"></i>
+</div>
+<button class="btn" type="submit">Login</button>
+<div class="register-link">
+    <p>Não possui conta?<a href="cadastro.html">Registre-se</a></p>
+    
+</div>
+    </form>
+    </div>
+    <script src="js/senha_visivel.js"></script>
+</body>
+</html>
