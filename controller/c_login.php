@@ -11,4 +11,4 @@ if (veriflogin($_POST['nome'], $_POST['senha'], 'usuarios', $conn)) {
     header("Location: ../view/v_login.html?error=Login ou senha inválidos");
     exit();
 }
-?>
+
