@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="/Html/css/login_style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="/Html/controller/c_login.php" method="post">
+    <h1>Login</h1>    
+   <div class="input-box">
+    <input type="email" required placeholder="Email:" name="nome">
+    <i class='bx bxs-user'></i>
+</div>
+
+<div class="input-box">
+    <input id="password-input" type="password" required placeholder="Senha:" name="senha">
+    <i class='bx bxs-lock' id="toggle-password"></i>
+</div>
+<button class="btn" type="submit">Login</button>
+<div class="register-link">
+    <p>Não possui conta?<a href="v_cadastro.html">Registre-se</a></p>
+    
+</div>
+    </form>
+    <div id="errorMessage" style="color: red; display: none; text-align: center;"></div>
+
+    <script>
+        // Função para exibir a mensagem de erro a partir da URL
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        $(document).ready(function() {
+            // Verifica se há uma mensagem de erro na URL
+            const errorMessage = getQueryParameter('error');
+            if (errorMessage) {
+                $('#errorMessage').text(errorMessage).show();
+            }
+        });
+
+        // Captura o envio do formulário
+        $('#loginForm').submit(function(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            // Faz a requisição AJAX para o PHP
+            $.ajax({
+                type: 'POST',
+                url: '../controller/c_login.php', // O caminho para o PHP que processa o login
+                data: $(this).serialize(), // Serializa os dados do formulário
+                success: function(response) {
+                    // Se o login for bem-sucedido, redireciona
+                    if (response.status === 'success') {
+                        window.location.href = '../view/v_index.html';
+                    } else {
+                        $('#errorMessage').text(response.message).show(); // Exibe mensagem de erro
+                    }
+                },
+                error: function() {
+                    $('#errorMessage').text('Ocorreu um erro ao tentar fazer login.').show();
+                }
+            });
+        });
+    </script>
+    </div>
+    <script src="js/senha_visivel.js"></script>
+</body>
+</html>
