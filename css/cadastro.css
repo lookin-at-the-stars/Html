@@ -10,14 +10,34 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(#0f225e, #a9bb06f1);
+    background:#2e3333;
     padding: 20px;
 }
 
-.w50 {
-    width: 50%;
-    float: left;
-    padding-right: 15px;
+.box-principal {
+    display: flex;
+    width: 930px; /* Largura fixa */
+    max-width: 100%;
+}
+
+.box-image {
+    background: #005f6b; /* Mantendo a cor de fundo original */
+    border-radius: 15px 0 0 15px; /* Mantendo bordas arredondadas */
+    padding: 20px;
+    align-items: center;
+    width: 60%; /* Mantendo a largura fixa */
+    display: flex;
+}
+
+.wrapper {
+    background: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente */
+    border-radius: 0 15px 15px 0; /* Mantendo bordas arredondadas */
+    padding: 30px 40px; /* Mantendo o padding */
+    display: flex; /* Mantendo o display flex */
+    flex-direction: column; /* Mantendo a direção flexível */
+    align-items: center; /* Mantendo o alinhamento central */
+    width: 50%; /* Mantendo a largura fixa */
+    backdrop-filter: blur(10px); /* Efeito de desfoque ao fundo */
 }
 
 .wrapper h1 {
@@ -25,37 +45,8 @@ body {
     text-align: center;
 }
 
-.box-principal {
-    display: flex;
-    width: 930px;
-    max-width: 100%; /* Garantindo que a largura máxima seja 100% em telas menores */
-}
+/* O restante do seu CSS continua aqui */
 
-.box-image {
-    background: #7eecff9c;
-    border-radius: 15px 0px 0 15px;
-    padding: 20px;
-    align-items: center;
-    width: 40%;
-    display: flex;
-}
-
-.box-image img {
-    width: 100%;
-    border-radius: 10px; /* Adicionando bordas arredondadas à imagem */
-}
-
-.wrapper {
-    text-decoration: none;
-    outline: none;
-    background: #7eecff9c;
-    border-radius: 0px 15px 15px 0px;
-    padding: 30px 40px;
-    display: flex;
-    flex-direction: column; /* Isso ajudará a alinhar melhor os elementos internos */
-    align-items: center;
-    width: 50%;
-}
 
 .wrapper .input-box {
     width: 100%;
@@ -64,57 +55,62 @@ body {
     position: relative;
 }
 
+
+
+.input-box input::placeholder {
+    color: #ffffff;
+}
+
+
+
+form .input-box input:focus {
+    border-color: #00dffc;
+}
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.input-box {
+    width: 100%;
+    height: 60px; /* Aumentando a altura do campo */
+    margin: 30px 0;
+    position: relative;
+}
+
 form .input-box input {
     width: 100%;
-    height: 47px;
+    height: 55px; /* Aumentando a altura do input */
     background-color: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(9, 21, 175, 0.5);
+    border: 2px solid rgba(0, 95, 107, 0.5);
     border-radius: 40px;
-    padding-right: 50px;
+    padding-right: 50px; /* Mantendo espaço para o ícone */
     font-size: 16px;
     color: #fff;
     padding: 15px;
     font-size: 15px;
 }
 
-.input-box input::placeholder {
-    color: #ffffff; /* Cor mais suave para melhor contraste */
-}
-
 .input-box i {
     position: absolute;
-    right: 19px;
+    right: 20px; /* Ajustando o posicionamento do ícone para não sobrepor o input */
     top: 50%;
     transform: translateY(-50%);
     color: #343838;
     font-size: 20px;
 }
 
-form .input-box input:focus {
-    border-color: #00dffc;
-}
-.input-box {
-    width: 100%;
-    height: 50px;
-    margin: 15px 0; /* Reduza o espaçamento vertical */
-    position: relative;
-}
-
-.input-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px; /* Espaçamento entre os campos de senha */
-    margin-top: 15px; /* Ajusta o espaçamento entre o e-mail e as senhas */
-}
 
 .input-box.w50 {
-    width: 48%; /* Ajusta a largura para que ambos caibam em uma linha */
+    width: 48%;
 }
 
-
-form .btn {
+/* Estilo dos Botões */
+form .btn, .btn-login {
     width: 100%;
     height: 47px;
     background-color: #005f6b;
@@ -129,9 +125,15 @@ form .btn {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #0a8ce9;
-    box-shadow: 0 0 10px 2px rgba(14, 11, 167, 0.6);
+/* Formatação do botão de login */
+.btn-login {
+    background-color: #008c9e;
+    margin-top: 20px;
+}
+
+.btn:hover, .btn-login:hover {
+    background-color: #00b4cc;
+    box-shadow: 0 0 10px 2px rgba(0, 95, 107, 0.6);
 }
 
 @media (max-width: 930px) {
@@ -140,11 +142,72 @@ form .btn {
     }
 
     .box-principal {
-        width: 100%; /* Garantindo que a largura ocupe 100% da tela */
+        width: 100%;
     }
 
     .wrapper {
         width: 100%;
         border-radius: 15px;
     }
+}
+
+/* Estilos para os botões sociais */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: #fff;
+    font-weight: 600;
+    background-color: #343838;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-btn:hover {
+    background-color: #00b4cc;
+}
+
+.social-btn i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.social-btn.google {
+    background-color: #db4437; /* Cor padrão do Google */
+}
+
+.social-btn.facebook {
+    background-color: #3b5998; /* Cor padrão do Facebook */
+}
+.login-prompt {
+    color: #ffffff; /* Mudando a cor do texto */
+    font-weight: bold; /* Deixando o texto em negrito */
+    margin-top: 20px; /* Adicionando uma margem superior */
+}
+.login-link {
+    color: #00b4cc; /* Cor chamativa que combina com a paleta */
+    font-weight: bold; /* Negrito para destaque */
+    text-decoration: none; /* Sem sublinhado */
+    margin-bottom: 15px; /* Espaçamento abaixo do link */
+    display: block; /* Faz o link ocupar a linha inteira */
+    text-align: center; /* Centraliza o texto */
+    transition: color 0.3s ease; /* Efeito de transição suave */
+}
+
+.login-link:hover {
+    color: #008c9e; /* Cor ao passar o mouse */
+}
+
+.login-link:visited {
+    color: #00b4cc; /* Manter a mesma cor quando visitado */
+    text-decoration: none; /* Sem sublinhado */
 }

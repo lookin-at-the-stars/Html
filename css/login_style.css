@@ -11,7 +11,7 @@ justify-content: center;
 align-items: center;
 min-height: 100vh;
 background: linear-gradient(to top, rgba(9, 59, 223, 0.842), rgba(0, 0, 255, 0)),
-url('/Html/imagem/bolsa.jpg') no-repeat;  
+url('../imagem/bolsa.jpg') no-repeat;  
 background-size: cover;
 }
 

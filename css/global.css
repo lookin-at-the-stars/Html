@@ -1,0 +1,146 @@
+*{
+    box-sizing:  border-box;
+padding: 0;
+margin: 0;
+}
+
+body{
+ font-family: "Poppins", sans-serif;
+}
+
+.header-inner-content{
+
+max-width: 1300px;
+margin-left: auto;
+margin-right: auto;
+
+
+}
+
+.navbar{
+    background-color: #202121;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    box-shadow: 10px 0px 10px #313133;
+    z-index: 99;
+}
+
+.navbar>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    color: #FFD700;  
+}
+.logo span{
+    color: rgb(233, 233, 233);
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+a{
+    text-decoration: none;
+    outline: none;
+    color: rgb(227, 230, 233);
+}
+
+.nav-icons{
+    display: flex;
+    align-items: center;
+
+}
+
+.nav-icons img{
+    width: 30px;
+    cursor: pointer;
+}
+.nav-icons img:first-child{
+    margin-right: 1rem;
+}
+
+nav ul li{
+    color: aliceblue;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+nav ul li:hover{
+    transform: translateY(-5px);
+    transition: all 0.2s;
+    font-weight: bold;
+}
+
+.menu-btn{
+    display: none;
+}
+.header-bottom{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 1rem;
+}
+
+.header-bottom-left{
+    height: 100%;
+    flex-basis: 50%;
+}
+.header-bottom-left h2{
+    color: #FFD700 ;
+    font-size:  3.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.header-bottom-left p{
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.header-bottom-left button{
+    font-weight: 500;
+    color: aliceblue;
+    background:#FFD700 ;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    padding: 0.8rem 3.8rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: ease-in 0.2s;
+}
+
+.header-bottom-left button:hover{
+    font-size: 2;
+    font-weight: bold;
+    box-shadow: 0px 0px 5px 10px  #FFD700;
+    transform: translateY(-5px);
+}
+header{
+    background-image: radial-gradient(#000000,#202020);
+}
+
+.header-bottom-right{
+display: flex;
+flex-basis: 50%;
+align-items: center;
+justify-content: center;
+}
+.header-bottom-right img{
+width: 115%;
+margin: 0 auto;
+filter: drop-shadow(8px 8px 8px #d8b80070);
+
+}
+
+@media (max-width: 800px){
+    .logo{
+        font-size: 1.2rem;
+    }
+
+    .header-bottom{
+        flex-direction: column;
+    }
+}
