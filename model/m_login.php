@@ -1,14 +1,15 @@
 <?php
 include "conn.php";
-$conn = conexao("localhost", "root", "", "hackathon");
-function veriflogin($nome, $senha, $tabela, $conn){
-    $sql = "SELECT senha FROM $tabela WHERE nome = '$nome' AND senha = '$senha'";
-    $result = mysqli_query($conn, $sql);
-    if (!$result) {
-        // Exibe o erro da consulta para facilitar o debug
-        die("Erro na consulta: " . mysqli_error($conn));
-    }
-    if(mysqli_num_rows($result) > 0){
+$conn = conexao("autorack.proxy.rlwy.net", "root", "IHxVRTKrqyXytVcvZjsxzyWgGacdMsoY", "hackathon");
+
+function veriflogin($nome, $senha, $tabela, $conn) {
+    // Prepara a declaração SQL para evitar injeção de SQL
+    $stmt = $conn->prepare("SELECT senha FROM $tabela WHERE nome = ? AND senha = ?");
+    $stmt->bind_param("ss", $nome, $senha);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows > 0) {
         return true;
     } else {
         return false;

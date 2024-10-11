@@ -1,0 +1,8 @@
+PostgreSQL endpoint
+postgresql://s3r8db:xau_V0vzhMquyrrtzW6zvq6sfJgRYcruVl8ma@us-east-1.sql.xata.sh/hackathon:main?sslmode=require
+
+HTTP endpoint
+https://Gabriel-B-s-workspace-s3r8db.us-east-1.xata.sh/db/hackathon:main
+
+API key
+xau_V0vzhMquyrrtzW6zvq6sfJgRYcruVl8ma
