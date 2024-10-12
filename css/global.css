@@ -82,7 +82,9 @@ nav ul li:hover{
     display: flex;
     align-items: center;
     justify-self: center;
-    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    
 }
 
 .header-bottom-left{

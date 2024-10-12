@@ -55,7 +55,7 @@
                 success: function(response) {
                     // Se o login for bem-sucedido, redireciona
                     if (response.status === 'success') {
-                        window.location.href = '../view/v_index.html';
+                        window.location.href = '../view/v_home_page.html';
                     } else {
                         $('#errorMessage').text(response.message).show(); // Exibe mensagem de erro
                     }
