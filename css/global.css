@@ -6,6 +6,7 @@ margin: 0;
 
 body{
  font-family: "Poppins", sans-serif;
+ background-image: radial-gradient(#000000,#202020);
 }
 
 .header-inner-content{
@@ -18,11 +19,11 @@ margin-right: auto;
 }
 
 .navbar{
-    background-color: #202121;
+    background-color: #1a1a1aa1;
     padding: 1rem;
     position: sticky;
     top: 0;
-    box-shadow: 10px 0px 10px #313133;
+    /*box-shadow: 10px 0px 10px #323233;*/
     z-index: 99;
 }
 
@@ -47,6 +48,15 @@ a{
     text-decoration: none;
     outline: none;
     color: rgb(227, 230, 233);
+    font-size: 1.13rem;
+}
+p{
+    color: #e4e8ec;
+    font-size: 1.17rem;
+    font-weight: 300;
+}
+.navbar .logo{
+    width: 13rem;
 }
 
 .nav-icons{
@@ -57,22 +67,34 @@ a{
 
 .nav-icons img{
     width: 30px;
-    cursor: pointer;
+    cursor: point;
+    filter: invert(89%) sepia(6%) saturate(193%) hue-rotate(181deg) brightness(97%) contrast(91%);
 }
+.nav-icons img:hover{
+    filter: invert(89%) sepia(6%) saturate(193%) hue-rotate(181deg) brightness(97%) contrast(91%) drop-shadow(0px 2px 12px #d8b800ef);
+    transform: translateY(-3px);
+    transition: all 0.25s;
+}
+
 .nav-icons img:first-child{
     margin-right: 1rem;
 }
 
 nav ul li{
     color: aliceblue;
-    margin-right: 1.5rem;
+    margin-right: 2.5rem;
     cursor: pointer;
+
+}
+.alinhamento {
+    display: flex;
+    align-items:center;
 }
 
 nav ul li:hover{
-    transform: translateY(-5px);
-    transition: all 0.2s;
-    font-weight: bold;
+    transform: translateY(-3px);
+    transition: all 0.25s;
+    filter: drop-shadow(0px 2px 12px #d8b800ef);
 }
 
 .menu-btn{
@@ -115,10 +137,10 @@ nav ul li:hover{
 }
 
 .header-bottom-left button:hover{
-    font-size: 2;
+    font-size: 1.6;
     font-weight: bold;
-    box-shadow: 0px 0px 5px 10px  #FFD700;
-    transform: translateY(-5px);
+    box-shadow: 0px 0px 2px 5px  #FFD700;
+    transform-origin: -1px;
 }
 header{
     background-image: radial-gradient(#000000,#202020);
@@ -133,8 +155,7 @@ justify-content: center;
 .header-bottom-right img{
 width: 115%;
 margin: 0 auto;
-filter: drop-shadow(8px 8px 8px #d8b80070);
-
+filter: drop-shadow(4px 4px 20px #d8b80070);
 }
 
 @media (max-width: 800px){
