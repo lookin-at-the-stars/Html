@@ -156,6 +156,7 @@ justify-content: center;
 width: 115%;
 margin: 0 auto;
 filter: drop-shadow(4px 4px 20px #d8b80070);
+align-items: flex-start;
 }
 
 @media (max-width: 800px){
