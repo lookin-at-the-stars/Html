@@ -1,5 +1,5 @@
 *{
-    box-sizing:  border-box;
+box-sizing:  border-box;
 padding: 0;
 margin: 0;
 }
@@ -49,22 +49,21 @@ a{
     outline: none;
     color: rgb(227, 230, 233);
     font-size: 1.13rem;
+
 }
 p{
     color: #e4e8ec;
     font-size: 1.17rem;
-    font-weight: 300;
+    font-weight: 500;
 }
 .navbar .logo{
     width: 13rem;
 }
-
 .nav-icons{
     display: flex;
     align-items: center;
 
 }
-
 .nav-icons img{
     width: 30px;
     cursor: point;
@@ -75,28 +74,24 @@ p{
     transform: translateY(-3px);
     transition: all 0.25s;
 }
-
 .nav-icons img:first-child{
     margin-right: 1rem;
 }
-
 nav ul li{
     color: aliceblue;
     margin-right: 2.5rem;
     cursor: pointer;
-
+    font-weight: 600;
 }
 .alinhamento {
     display: flex;
     align-items:center;
 }
-
 nav ul li:hover{
     transform: translateY(-3px);
     transition: all 0.25s;
     filter: drop-shadow(0px 2px 12px #d8b800ef);
 }
-
 .menu-btn{
     display: none;
 }
@@ -108,7 +103,6 @@ nav ul li:hover{
     padding-right: 1rem;
     
 }
-
 .header-bottom-left{
     height: 100%;
     flex-basis: 50%;
@@ -118,14 +112,13 @@ nav ul li:hover{
     font-size:  3.5rem;
     margin-bottom: 1.5rem;
 }
-
 .header-bottom-left p{
     line-height: 1.5rem;
     margin-bottom: 1.5rem;
 }
 .header-bottom-left button{
     font-weight: 500;
-    color: aliceblue;
+    color: #424345;
     background:#FFD700 ;
     border: none;
     outline: none;
@@ -135,7 +128,6 @@ nav ul li:hover{
     font-size: 1.5rem;
     transition: ease-in 0.2s;
 }
-
 .header-bottom-left button:hover{
     font-size: 1.6;
     font-weight: bold;
@@ -145,25 +137,93 @@ nav ul li:hover{
 header{
     background-image: radial-gradient(#000000,#202020);
 }
-
-.header-bottom-right{
-display: flex;
-flex-basis: 50%;
-align-items: center;
-justify-content: center;
-}
-.header-bottom-right img{
-width: 115%;
-margin: 0 auto;
-filter: drop-shadow(4px 4px 20px #d8b80070);
+.header-bottom-right {
+    display: flex;
+    flex-basis: 50%;
+    align-items: center;
+    justify-content: center;
 }
 
-@media (max-width: 800px){
-    .logo{
+.header-bottom-right img {
+    width: 115%;
+    margin: 0 auto;
+    filter: drop-shadow(4px 4px 20px #d8b80070);
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    max-width: 100vw; 
+    height: 500px; /* Altura fixa */
+    overflow: hidden; /* Esconde qualquer parte da imagem que ultrapasse os limites */
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Velocidade de entrada */
+    padding: 0 50px; /* Adiciona um espaçamento lateral entre as imagens */
+    box-sizing: border-box; /* Garante que o padding não afete a largura total do item */
+}
+
+.carousel-item.active {
+    opacity: 1; /* Mostra o item ativo */
+    transform: translateX(0); /* Move o item ativo para o centro */
+}
+
+.carousel-item.next {
+    transform: translateX(100%); /* O próximo item começa fora da tela à direita */
+    opacity: 1;
+}
+
+.carousel-item.prev {
+    transform: translateX(-100%); /* O item anterior começa fora da tela à esquerda */
+    opacity: 1;
+}
+
+.carousel-item.outgoing {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Defina a saída aqui */
+    opacity: 0;
+    transform: translateX(-100%); /* Mover para a esquerda ou direita durante a saída */
+}
+
+.carousel-item img {
+    max-width: 100%; /* Garante que a largura não ultrapasse o contêiner */
+    max-height: 100%; /* Ajusta a imagem à altura do contêiner */
+    object-fit: contain; /* Mantém a proporção da imagem sem cortá-la */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    max-width: calc(100%);
+}
+
+
+/* Adicionando animação de transição entre os itens */
+.carousel-item.active {
+    animation: slide-in 0.6s forwards ease-in-out;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 800px) {
+    .logo {
         font-size: 1.2rem;
     }
 
-    .header-bottom{
+    .header-bottom {
         flex-direction: column;
     }
 }
