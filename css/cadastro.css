@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:#2e3333;
+    background-image: radial-gradient(#000000,#202020);
     padding: 20px;
 }
 
@@ -21,7 +21,7 @@ body {
 }
 
 .box-image {
-    background: #005f6b; /* Mantendo a cor de fundo original */
+    background: #FFD700; /* Mantendo a cor de fundo original */
     border-radius: 15px 0 0 15px; /* Mantendo bordas arredondadas */
     padding: 20px;
     align-items: center;
@@ -30,7 +30,7 @@ body {
 }
 
 .wrapper {
-    background: rgba(255, 255, 255, 0.2); /* Fundo semi-transparente */
+    background: rgba(238, 236, 236, 0.2); /* Fundo semi-transparente */
     border-radius: 0 15px 15px 0; /* Mantendo bordas arredondadas */
     padding: 30px 40px; /* Mantendo o padding */
     display: flex; /* Mantendo o display flex */
@@ -64,7 +64,7 @@ body {
 
 
 form .input-box input:focus {
-    border-color: #00dffc;
+    border-color: #FFD700;
 }
 .input-row {
     display: flex;
@@ -86,7 +86,7 @@ form .input-box input {
     background-color: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(0, 95, 107, 0.5);
+    border: 2px solid rgba(96, 107, 0, 0.5);
     border-radius: 40px;
     padding-right: 50px; /* Mantendo espaço para o ícone */
     font-size: 16px;
@@ -100,7 +100,7 @@ form .input-box input {
     right: 20px; /* Ajustando o posicionamento do ícone para não sobrepor o input */
     top: 50%;
     transform: translateY(-50%);
-    color: #343838;
+    color: #dddddd;
     font-size: 20px;
 }
 
@@ -113,7 +113,7 @@ form .input-box input {
 form .btn, .btn-login {
     width: 100%;
     height: 47px;
-    background-color: #005f6b;
+    background-color: #FFD700;
     border-radius: 30px;
     outline: none;
     border: none;
@@ -127,13 +127,13 @@ form .btn, .btn-login {
 
 /* Formatação do botão de login */
 .btn-login {
-    background-color: #008c9e;
+    background-color: #ebc801;
     margin-top: 20px;
 }
 
 .btn:hover, .btn-login:hover {
-    background-color: #00b4cc;
-    box-shadow: 0 0 10px 2px rgba(0, 95, 107, 0.6);
+    background-color: #e9c600;
+    box-shadow: 0 0 10px 2px rgba(138, 129, 1, 0.6);
 }
 
 @media (max-width: 930px) {
@@ -167,13 +167,13 @@ form .btn, .btn-login {
     border-radius: 30px;
     color: #fff;
     font-weight: 600;
-    background-color: #343838;
+    background-color: #FFD700;
     text-decoration: none;
     transition: background-color 0.3s;
 }
 
 .social-btn:hover {
-    background-color: #00b4cc;
+    background-color: #FFD700;
 }
 
 .social-btn i {
@@ -204,10 +204,10 @@ form .btn, .btn-login {
 }
 
 .login-link:hover {
-    color: #008c9e; /* Cor ao passar o mouse */
+    color: #FFD700; /* Cor ao passar o mouse */
 }
 
 .login-link:visited {
-    color: #00b4cc; /* Manter a mesma cor quando visitado */
+    color: #FFD700; /* Manter a mesma cor quando visitado */
     text-decoration: none; /* Sem sublinhado */
 }
