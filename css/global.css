@@ -195,6 +195,32 @@ header{
     opacity: 0;
     transform: translateX(-100%); /* Mover para a esquerda ou direita durante a saída */
 }
+.carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Transparente com fundo escuro */
+    color: #FFD700;
+    font-size: 2rem;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 99;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev {
+    left: 20px; /* Posição da seta à esquerda */
+}
+
+.carousel-control-next {
+    right: 20px; /* Posição da seta à direita */
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Efeito ao passar o mouse */
+}
+
 
 .carousel-item img {
     max-width: 100%; /* Garante que a largura não ultrapasse o contêiner */
@@ -261,6 +287,9 @@ header{
 }
 
 /* Conteudo Main*/
+main{
+    background-color: #fff8f8 ;
+}
 
 .barra-background{
     background-color:#424345 ;
@@ -282,6 +311,60 @@ gap: 3rem;
 }
 
 .cols-content img{
-    width: 70%;
+    max-width: 100%;
     height: auto;
+}
+
+.cols-content-2 img{
+    max-width: 100%;
+  
+}
+
+.cols-content-2{
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.cols>*{
+    cursor: pointer;
+    transition:  all 0.2s;
+}
+
+.cols>*:hover{
+    transform: translateY(-5px);
+}
+
+.section-title{
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.8rem;
+}
+
+.subtitulo{
+    width: 100px;
+    height: 5px;
+    background-color: #FFD700;
+    margin: 8px auto 0 auto ;
+}
+
+.produto{
+    color: #202020;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.nome-produto{
+    font-weight: 600;
+    margin-top: 0.4rem;
+}
+
+
+.classificação{
+    font-size: 1.3rem;
+    color: #202020;
+}
+
+.price span{
+    font-weight: 800;
 }
