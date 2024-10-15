@@ -10,8 +10,7 @@ menuButton.addEventListener("click", () => {
 });
 
 // Adiciona evento de clique para fechar o menu
-closeButton.addEventListener("click", () => {
-    menu.style.display = "none"; // Oculta o menu
+closeButton.addEventListener("click", () => {menu.style.display = "none"; // Oculta o menu
     closeButton.style.display = "none"; // Esconde o "X"
 });
 
