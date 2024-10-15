@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/global.css">
     <title>Document</title>
@@ -25,6 +29,7 @@
     </nav>
 <div class="nav-icons">   
 <a href="cart.html"><img src="../imagem/bxs-cart.svg"></a>
+<a href=""><img src="../imagem/bx-perfil.svg" alt=""></a>
 <img src="../imagem/bx-menu.svg" class="menu-btn">
 </div>    
 </div>
@@ -36,16 +41,28 @@
             <p> Confira as melhores ofertas com um dos menores preços do mercado!</p>
             <button>Veja nossos produtos! &#8594;</button>
         </div>
-    <div class="header-bottom-right">
-        <br>
-        <br>
-        <br>
-        <img src="../imagem/controle2.png" class="controle">
+        <div class="header-bottom-right">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="carousel-img" src="../imagem/controle.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="carousel-img" src="../imagem/fone.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="carousel-img" src="../imagem/controle2.png" alt="Third slide">
+                </div>                
+            </div>
+        </div>
+            
+    </div>
+        <img  class="controle">
 
             <br>
-    </div>
+</div>
 </div>
 </div>
 </header>
+<script src="../js/carousel.js"></script>
 </body>
 </html>
