@@ -19,7 +19,7 @@ margin-right: auto;
 }
 
 .navbar{
-    background-color: #1a1a1aa1;
+    background-color: #1a1a1a;
     padding: 1rem;
     position: sticky;
     top: 0;
@@ -31,6 +31,7 @@ margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .logo{
@@ -209,6 +210,7 @@ header{
     animation: slide-in 0.6s forwards ease-in-out;
 }
 
+
 @keyframes slide-in {
     from {
         transform: translateX(100%);
@@ -223,7 +225,63 @@ header{
         font-size: 1.2rem;
     }
 
-    .header-bottom {
+    .alinhamento {
         flex-direction: column;
+        text-align: center;
     }
+    
+    .show-menu nav {
+        display: block; 
+    }
+    
+
+ nav{
+    position: absolute;
+    background-color: #1a1a1a;
+    width: 100%;
+    top:46px;
+    display: none; 
+   
+ }
+    nav ul{
+    flex-direction:column;
+    }
+ 
+
+ nav ul li{
+    text-align:center;
+    padding: 0.8rem;
+    font-size: 1rem;
+
+ }
+ .menu-btn{
+    display: block;
+ }
+ 
+}
+
+/* Conteudo Main*/
+
+.barra-background{
+    background-color:#424345 ;
+}
+
+.page-inner{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.cols{
+    display: grid;
+    padding: 4rem 1rem;
+    
+}
+.cols-content{
+grid-template-columns: repeat(3, 1fr);
+gap: 3rem;
+}
+
+.cols-content img{
+    width: 70%;
+    height: auto;
 }
