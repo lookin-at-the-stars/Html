@@ -51,7 +51,7 @@
             // Faz a requisição AJAX para o PHP
             $.ajax({
                 type: 'POST',
-                url: '../controller/c_login.php', // O caminho para o PHP que processa o login
+                url: './controller/c_login.php', // O caminho para o PHP que processa o login
                 data: $(this).serialize(), // Serializa os dados do formulário
                 success: function(response) {
                     // Se o login for bem-sucedido, redireciona
