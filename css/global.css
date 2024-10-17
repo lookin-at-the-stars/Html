@@ -53,7 +53,7 @@ a{
     font-size: 1.13rem;
 
 }
-p{
+.content-carrosel{
     color: #e4e8ec;
     font-size: 1.17rem;
     font-weight: 500;
@@ -292,7 +292,7 @@ header{
 
 /* Conteudo Main*/
 main{
-    background-color: #fff8f8 ;
+    background: radial-gradient(#c5c5c5, #f1f1f1);
 }
 
 .barra-background{
@@ -327,7 +327,7 @@ border-color: #303030;
 border-radius: 5px;
 }
 .card p{
-    color: #c5c5c5;
+    color: #dbd6d6;
     font-size: 1.5rem;
     text-align:justify;
     font-weight: 700;
@@ -374,7 +374,8 @@ border-radius: 5px;
 
 .cols-content-2{
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1rem;
+    border-color: #1a1a1a;
 }
 
 .cols>*{
@@ -399,16 +400,24 @@ border-radius: 5px;
     margin: 8px auto 0 auto ;
 }
 
-.produto{
-    color: #202020;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
+.Produto {
+    background-color: #e9e6e6; /* Cor de fundo da caixa do produto */
+    box-shadow: 0 4px 8px rgba(192, 192, 192, 0.1), 0 6px 20px rgba(153, 152, 152, 0.1); /* Caixa de sombra */
+    border-style: solid;
+    border-width: 1px;
+  
+    padding: 1rem; /* Espaçamento interno */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+.Produto:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 40px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+    transform: translateY(-5px); /* Eleva levemente a caixa ao passar o mouse */
 }
 
 .nome-produto{
+    color: #1a1a1a;
     font-weight: 600;
-    margin-top: 0.4rem;
+    margin-top: 0.2rem;
 }
 
 
@@ -419,4 +428,7 @@ border-radius: 5px;
 
 .price span{
     font-weight: 800;
+}
+.Produto p {
+    color: #000000; /* Cor preta para os parágrafos dentro da classe Produto */
 }
