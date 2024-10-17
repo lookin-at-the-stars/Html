@@ -19,27 +19,27 @@
         </div>
 
         <!-- Formulário de Cadastro -->
-        <form action="/cadastro" method="POST">
+        <form action="../controller/c_cadastro.php" method="POST">
             <h1>Crie sua Conta</h1>    
 
             <div class="input-box">
-                <input type="text" required placeholder="Nome Completo:" maxlength="100">
+                <input type="text" required placeholder="Nome Completo:" maxlength="100" name="nome">
                 <i class='bx bxs-user'></i>
             </div>
 
             <div class="input-box">
-                <input type="email" required placeholder="Email:">
+                <input type="email" required placeholder="Email:" name="email">
                 <i class='bx bxs-envelope'></i>
             </div>
 
             <div class="input-box">
-                <input type="text" required placeholder="Número de Telefone:" maxlength="15">
+                <input type="text" required placeholder="Número de Telefone:" maxlength="15" name="telefone">
                 <i class='bx bxs-phone'></i>
             </div>
 
             <div class="input-row">
                 <div class="input-box w50">
-                    <input id="password-input" type="password" required placeholder="Senha:">
+                    <input id="password-input" type="password" required placeholder="Senha:" name="senha">
                     <i class='bx bxs-lock' id="toggle-password"></i>
                 </div>
                 <div class="input-box w50">
@@ -47,13 +47,48 @@
                     <i class='bx bxs-lock'></i>
                 </div>
             </div>
-
-            <!-- Botão "Cadastrar conta" como link -->
-            <a href="/cadastro" class="btn-link">
-                <button class="btn" type="button">Cadastrar conta</button>
-            </a>
+                <input class="btn" type="submit" value="Cadastrar Conta">
         </form>
-
+        <div id="errorMessage" style="color: red; display: none; text-align: center;"></div>
+        <script>
+            // Função para exibir a mensagem de erro a partir da URL
+            function getQueryParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+    
+            $(document).ready(function() {
+                // Verifica se há uma mensagem de erro na URL
+                const errorMessage = getQueryParameter('error');
+                if (errorMessage) {
+                    $('#errorMessage').text(errorMessage).show();
+                }
+            });
+    
+            // Captura o envio do formulário
+            $('#loginForm').submit(function(event) {
+                event.preventDefault(); // Evita o envio padrão do formulário
+    
+                // Faz a requisição AJAX para o PHP
+                $.ajax({
+                    type: 'POST',
+                    url: '../controller/c_cadastro.php', // O caminho para o PHP que processa o login
+                    data: $(this).serialize(), // Serializa os dados do formulário
+                    success: function(response) {
+                        // Se o login for bem-sucedido, redireciona
+                        if (response.status === 'success') {
+                            window.location.href = '../view/v_home_page.html';
+                        } else {
+                            $('#errorMessage').text(response.message).show(); // Exibe mensagem de erro
+                        }
+                    },
+                    error: function() {
+                        $('#errorMessage').text('Email já cadastrado!.').show();
+                    }
+                });
+            });
+        </script>
+        
         <div class="register-link">
             <p class="login-prompt">Faça login e comece a explorar:</p>
             <div class="social-login">
