@@ -2,10 +2,10 @@
 include "conn.php";
 $conn = conexao();
 
-function veriflogin($nome, $senha, $tabela, $conn) {
+function veriflogin($email, $senha, $tabela, $conn) {
     // Prepara a declaração SQL para evitar injeção de SQL
-    $stmt = $conn->prepare("SELECT senha FROM $tabela WHERE nome = ? AND senha = ?");
-    $stmt->bind_param("ss", $nome, $senha);
+    $stmt = $conn->prepare("SELECT id_login FROM $tabela WHERE email = ? AND senha = ?");
+    $stmt->bind_param("ss", $email, $senha);
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
