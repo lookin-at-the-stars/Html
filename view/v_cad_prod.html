@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Produto</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Estilização geral do formulário */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        input[type="text"], 
+        input[type="number"], 
+        textarea, 
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Adicionar Produto</h2>
+        <form action="../controller/c_cad_prod.php" method="POST" id="formCadastroProduto" enctype="multipart/form-data">
+            <label for="nome">Nome do Produto:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="descricao">Descrição do Produto:</label>
+            <textarea id="descricao" name="descricao" required></textarea>
+
+            <label for="preco">Preço:</label>
+            <input type="number" id="preco" name="preco" step="0.01" required>
+            
+            <label for="categorias">Selecione as categorias:</label>
+            <select id="categorias" name="categorias[]">
+            </select>
+
+            <label for="imagens">Imagens do Produto:</label>
+            <input type="file" id="imagens" name="imagens[]" multiple accept="image/*" required>
+
+            <input type="submit" value="Enviar Produto">
+        </form>
+        <div class="errormessage" id="errorMessage" style="color: red; background-color: #666666; text-align: center; padding: 0.5rem; margin: 1rem 0; font-size: 1rem; border: 2px solid rgb(107, 106, 52); border-radius: 5px; opacity: 1;"></div> 
+        <script>
+            $(document).ready(function() {
+                // Carrega as categorias via AJAX (GET)
+                $.ajax({
+                    url: '../controller/c_cad_prod2.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        if (Array.isArray(data) && data.length > 0) {
+                            data.forEach(function(categoria) {
+                                $('#categorias').append(
+                                    $('<option>', {
+                                        value: categoria.id_categoria,
+                                        text: categoria.nome_categoria
+                                    })
+                                );
+                            });
+                        } else {
+                            $('#errorMessage').text('Nenhuma categoria encontrada.').show();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Erro na requisição AJAX: ', status, error);
+                        $('#errorMessage').text('Erro ao carregar categorias.').show();
+                    }
+                });
+
+                // Submissão do formulário com arquivos e dados
+                $('#formCadastroProduto').submit(function(event) {
+                    event.preventDefault(); // Evita o envio padrão do formulário
+
+                    const formData = new FormData(this);
+
+                    $.ajax({
+    type: 'POST',
+    url: '../controller/c_cad_prod.php',
+    data: formData,
+    processData: false,  // Não processe o formData
+    contentType: false,  // Não defina o tipo de conteúdo
+    success: function(response) {
+        try {
+            // Analisando a resposta como JSON
+            if (response.status === 'success') {
+                $('#errorMessage').text("Registro efetuado com sucesso").show();
+                // Aqui você pode adicionar lógica para lidar com as categorias, se necessário
+            } else {
+                $('#errorMessage').text(response.message).show();
+            }
+        } catch (e) {
+            console.error('Erro ao processar a resposta JSON: ', e);
+            $('#errorMessage').text('Erro ao processar a resposta do servidor.').show();
+        }
+    },
+    error: function() {
+        $('#errorMessage').text('Erro ao processar o cadastro.').show(); 
+    }
+});
+
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
